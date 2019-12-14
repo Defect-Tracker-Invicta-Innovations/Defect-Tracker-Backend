@@ -3,7 +3,6 @@ package com.sgic.internal.defecttracker.defectservice.controller.dto;
 import java.util.ArrayList;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.sgic.internal.defecttracker.defectservice.entities.SubModule;
 
 public class ModuleAllocationDto {
 

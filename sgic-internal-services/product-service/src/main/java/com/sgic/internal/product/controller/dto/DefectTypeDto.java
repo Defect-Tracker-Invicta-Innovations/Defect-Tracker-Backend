@@ -1,8 +1,8 @@
 package com.sgic.internal.product.controller.dto;
 
-public class TypeDto {
+public class DefectTypeDto {
 	private long id; // Defect type id
-	private String name; // Defect type name
+	private String defectType; // Defect type name
 	private String value; // Defect type value
 
 	public long getId() {
@@ -13,12 +13,12 @@ public class TypeDto {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getDefectType() {
+		return defectType;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setDefectType(String defectType) {
+		this.defectType = defectType;
 	}
 
 	public String getValue() {
@@ -28,5 +28,5 @@ public class TypeDto {
 	public void setValue(String value) {
 		this.value = value;
 	}
-	
+
 }

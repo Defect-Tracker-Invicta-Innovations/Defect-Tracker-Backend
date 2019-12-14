@@ -1,5 +1,13 @@
 package com.sgic.internal.defecttracker.defectservice.services;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -8,21 +16,11 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.sgic.internal.defecttracker.defectservice.entities.Comments;
 import com.sgic.internal.defecttracker.defectservice.entities.DBFile;
-import com.sgic.internal.defecttracker.defectservice.repositories.DBFileRepository;
 import com.sgic.internal.defecttracker.defectservice.exception.FileStorageException;
 import com.sgic.internal.defecttracker.defectservice.exception.MyFileNotFoundException;
 import com.sgic.internal.defecttracker.defectservice.property.FileStorageProperties;
-
-import java.io.File;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-import java.util.List;
+import com.sgic.internal.defecttracker.defectservice.repositories.DBFileRepository;
 
 @CrossOrigin
 @Service

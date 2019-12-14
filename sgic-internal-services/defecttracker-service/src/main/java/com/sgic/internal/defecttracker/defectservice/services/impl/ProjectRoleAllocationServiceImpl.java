@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.sgic.internal.defecttracker.defectservice.entities.ProjectRoleAllocation;
 import com.sgic.internal.defecttracker.defectservice.repositories.ModuleAllocationRepository;
-import com.sgic.internal.defecttracker.defectservice.repositories.ModuleRepository;
 import com.sgic.internal.defecttracker.defectservice.repositories.ProjectRoleAllocationRepository;
 import com.sgic.internal.defecttracker.defectservice.services.ProjectRoleAllocationService;
 

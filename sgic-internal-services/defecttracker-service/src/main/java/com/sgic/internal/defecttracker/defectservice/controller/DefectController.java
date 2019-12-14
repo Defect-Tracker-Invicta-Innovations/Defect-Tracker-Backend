@@ -146,7 +146,7 @@
 //	}
 //
 //	//get all defects by priority
-//	@GetMapping(value = "/getDefectsByPriority/{priority}")
+//	@GetMapping(value = "/getDefectsByStatus/{status}")
 //	public List<DefectData> getByPriority(@PathVariable(name = "priority") String priority) {
 //		logger.info("Controller -> getByDate Successfull");
 //		return defectDataMapper.getAllDefectByPriority(priority);

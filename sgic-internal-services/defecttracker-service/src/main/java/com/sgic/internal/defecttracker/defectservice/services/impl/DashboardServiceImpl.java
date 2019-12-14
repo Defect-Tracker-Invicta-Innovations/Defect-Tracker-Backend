@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 import com.sgic.internal.defecttracker.defectservice.repositories.DefectRepository;
 import com.sgic.internal.defecttracker.defectservice.services.DashboardService;
 

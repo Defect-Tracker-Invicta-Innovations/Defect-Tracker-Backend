@@ -58,7 +58,7 @@ public class Company implements Serializable {
 	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "licenseId", nullable = false)
-	private CompanyLicenseType licenseTypeId; // Free, Silver, Gold, Platinum
+	private LicenseType licenseTypeId; // Free, Silver, Gold, Platinum
 	@NotNull
 	@Positive
 	@Min(value = 1)
@@ -120,11 +120,11 @@ public class Company implements Serializable {
 		this.adminEmail = adminEmail;
 	}
 
-	public CompanyLicenseType getLicenseTypeId() {
+	public LicenseType getLicenseTypeId() {
 		return licenseTypeId;
 	}
 
-	public void setLicenseTypeId(CompanyLicenseType licenseTypeId) {
+	public void setLicenseTypeId(LicenseType licenseTypeId) {
 		this.licenseTypeId = licenseTypeId;
 	}
 

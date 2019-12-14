@@ -1,7 +1,5 @@
 package com.sgic.internal.defecttracker.defectservice.entities;
 
-import java.sql.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,12 +10,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat.ISO;
 import org.springframework.lang.Nullable;
-
-import com.sgic.internal.defecttracker.defectservice.entities.Module;
-import com.sgic.internal.defecttracker.defectservice.entities.Project;
 
 @Entity
 @Table(schema="defectservices",name="defect")

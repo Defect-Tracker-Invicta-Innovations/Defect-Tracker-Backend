@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.sgic.internal.product.entities.DefectType;
 
-public interface TypeRepo extends JpaRepository<DefectType, Long> {
+public interface DefectTypeRepository extends JpaRepository<DefectType, Long> {
 	
+	boolean existsByDefectType(String defectType);
 }

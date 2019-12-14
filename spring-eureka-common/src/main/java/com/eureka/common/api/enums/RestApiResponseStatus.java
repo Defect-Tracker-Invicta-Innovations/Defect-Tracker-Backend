@@ -3,7 +3,7 @@ package com.eureka.common.api.enums;
 public enum RestApiResponseStatus {
 
 	OK("OK", 20000), CREATED("CREATED", 20100), VALIDATION_FAILURE("VALIDATION_FAILURE", 40000),
-	FORBIDDEN("FORBIDDEN", 40300), ERROR("ERROR", 50000);
+	FORBIDDEN("FORBIDDEN", 40300), ERROR("ERROR", 50000), UPDATED("UPDATED SUCCESSFULLY", 20200);
 
 	private String status;
 

@@ -3,6 +3,7 @@ package com.sgic.internal.defecttracker.defectservice.services.impl;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
 import com.sgic.internal.defecttracker.defectservice.entities.ResourceAllocation;
 import com.sgic.internal.defecttracker.defectservice.repositories.ResourceAllocationRepository;
 import com.sgic.internal.defecttracker.defectservice.services.ResourceAllocationService;

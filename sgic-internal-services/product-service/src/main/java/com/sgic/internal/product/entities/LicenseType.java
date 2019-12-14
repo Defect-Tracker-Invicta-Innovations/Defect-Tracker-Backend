@@ -8,34 +8,40 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@SuppressWarnings("serial")
 @Entity
-@Table(schema = "productservice", name = "license")
-public class CompanyLicenseType implements Serializable  {
+@Table(schema = "productservice", name = "licenseTye")
+public class LicenseType implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long licenseId;
+	private Long id;
 	private String licenseType;
-	
-	public CompanyLicenseType() {
+
+	public LicenseType() {
 		super();
 	}
-	public CompanyLicenseType(String licenseType) {
+
+	public LicenseType(String licenseType) {
 		super();
 		this.licenseType = licenseType;
 	}
-	public Long getLicenseId() {
-		return licenseId;
+
+	public Long getId() {
+		return id;
 	}
-	public void setLicenseId(Long licenseId) {
-		this.licenseId = licenseId;
+
+	public void setId(Long id) {
+		this.id = id;
 	}
+
 	public String getLicenseType() {
 		return licenseType;
 	}
+
 	public void setLicenseType(String licenseType) {
 		this.licenseType = licenseType;
 	}
-	
+
 }

@@ -1,22 +1,24 @@
 package com.sgic.internal.product.controller.dto;
 
-public class CompanyLicenseTypeDto {
-	
-	private Long licenseId;
+public class LicenseTypeDto {
+
+	private Long id;
 	private String licenseType;
-	public Long getLicenseId() {
-		return licenseId;
+
+	public Long getId() {
+		return id;
 	}
-	public void setLicenseId(Long licenseId) {
-		this.licenseId = licenseId;
+
+	public void setId(Long id) {
+		this.id = id;
 	}
+
 	public String getLicenseType() {
 		return licenseType;
 	}
+
 	public void setLicenseType(String licenseType) {
 		this.licenseType = licenseType;
 	}
-	
-	
 
 }

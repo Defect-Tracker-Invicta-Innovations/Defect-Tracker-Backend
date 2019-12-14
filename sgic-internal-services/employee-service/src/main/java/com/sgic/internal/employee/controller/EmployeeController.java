@@ -23,9 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-
 import com.eureka.common.api.enums.RestApiResponseStatus;
-
 import com.eureka.common.api.response.BasicResponse;
 import com.eureka.common.api.response.ValidationFailure;
 import com.eureka.common.dto.mapper.Mapper;
@@ -33,7 +31,6 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sgic.internal.employee.dto.EmployeeDTO;
-
 import com.sgic.internal.employee.entities.Designation;
 import com.sgic.internal.employee.entities.Employee;
 import com.sgic.internal.employee.services.EmployeeService;

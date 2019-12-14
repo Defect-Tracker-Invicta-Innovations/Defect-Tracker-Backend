@@ -1,0 +1,7 @@
+http://localhost:8083/productservice/cars?search=brand:'Zusuki'
+http://localhost:8083/productservice/cars?search=brand:'Zusuki' AND price>1450000
+http://localhost:8083/productservice/cars?search=brand:'Zusuki' OR price>1450000
+http://localhost:8083/productservice/cars?search=brand:'Zusuki' OR price<1450000
+http://localhost:8083/productservice/cars?search=brand:'Zusuki' AND price>1450000 AND creationyear>1991
+http://localhost:8083/productservice/cars?search=brand:'Zusuki' AND price>1450000 AND creationyear>1991 OR color:'red'
+http://localhost:8083/productservice/cars?search=brand:'Zusuki' AND price>1450000 AND creationyear>1991 OR color:'red' AND options.hasGPS:yes
