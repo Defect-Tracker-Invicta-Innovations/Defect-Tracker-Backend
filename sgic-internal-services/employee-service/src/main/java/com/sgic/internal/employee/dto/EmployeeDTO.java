@@ -3,48 +3,47 @@ package com.sgic.internal.employee.dto;
 public class EmployeeDTO {
 
 //	Initialize EmployeeDTO
-	private Long empId;
-	private String employeeid;
-	private String name;
-	private String firstname;
+	private Long id;
+	private String employeeId;
+	private String firstName;
+	private String lastName;
 	private String email;
-	private Long designationid;
-	private String designationname;
-	private int availability =100;
+	private Long designationId;
+	private String designationName;
+	private int availability = 100;
 	private boolean bench;
-	private String profilePicPath;
+	private String profilePicturePath;
 
-	public EmployeeDTO() {
-		super();
+	public Long getId() {
+		return id;
 	}
 
-	public EmployeeDTO(String string, String string2, String string3, String string4) {
-		
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	// Initialize Designation DTO Getter Setter
-	public Long getEmpId() {
-		return empId;
+	public String getEmployeeId() {
+		return employeeId;
 	}
 
-	public void setEmpId(Long empId) {
-		this.empId = empId;
+	public void setEmployeeId(String employeeId) {
+		this.employeeId = employeeId;
 	}
 
-	public String getEmployeeid() {
-		return employeeid;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setEmployeeid(String employeeid) {
-		this.employeeid = employeeid;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getName() {
-		return name;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public String getEmail() {
@@ -55,20 +54,20 @@ public class EmployeeDTO {
 		this.email = email;
 	}
 
-	public Long getDesignationid() {
-		return designationid;
+	public Long getDesignationId() {
+		return designationId;
 	}
 
-	public void setDesignationid(Long designationid) {
-		this.designationid = designationid;
+	public void setDesignationId(Long designationId) {
+		this.designationId = designationId;
 	}
 
-	public String getDesignationname() {
-		return designationname;
+	public String getDesignationName() {
+		return designationName;
 	}
 
-	public void setDesignationname(String designationname) {
-		this.designationname = designationname;
+	public void setDesignationName(String designationName) {
+		this.designationName = designationName;
 	}
 
 	public int getAvailability() {
@@ -87,21 +86,12 @@ public class EmployeeDTO {
 		this.bench = bench;
 	}
 
-	public String getFirstname() {
-		return firstname;
+	public String getProfilePicturePath() {
+		return profilePicturePath;
 	}
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setProfilePicturePath(String profilePicturePath) {
+		this.profilePicturePath = profilePicturePath;
 	}
-
-	public String getProfilePicPath() {
-		return profilePicPath;
-	}
-
-	public void setProfilePicPath(String profilePicPath) {
-		this.profilePicPath = profilePicPath;
-	}
-	
 
 }
