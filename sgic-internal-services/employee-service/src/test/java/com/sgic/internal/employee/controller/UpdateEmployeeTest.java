@@ -27,14 +27,14 @@ public class UpdateEmployeeTest extends EmployeeTest {
 
 	@Test
 	public void testUpdateEmployee() throws IOException, RestClientException {
-		EmployeeDTO employeeDTO = new EmployeeDTO("EMP002", "rammi", "dali@gmail.com", "QA");
+		EmployeeDTO employeeDTO = new EmployeeDTO();
 		HttpHeaders httpHeaders = new HttpHeaders();
 		HttpEntity<EmployeeDTO> request = new HttpEntity<EmployeeDTO>(employeeDTO, httpHeaders);
 		ResponseEntity<String> postresponse = testRestTemplate
 				.postForEntity("http://localhost:8084/employeeservice" + "/createemployee", request, String.class);
 		assertEquals(200, postresponse.getStatusCodeValue());
 
-		EmployeeDTO employeeDTO1 = new EmployeeDTO("EMP002", "rammi", "rammi@gmail.com", "QA");
+		EmployeeDTO employeeDTO1 = new EmployeeDTO();
 		HttpEntity<EmployeeDTO> updaterequest = new HttpEntity<EmployeeDTO>(employeeDTO1, httpHeaders);
 		ResponseEntity<String> putResponse = testRestTemplate.exchange(
 				"http://localhost:8084/employeeservice" + "/update" + "/EMP002", HttpMethod.PUT, updaterequest,

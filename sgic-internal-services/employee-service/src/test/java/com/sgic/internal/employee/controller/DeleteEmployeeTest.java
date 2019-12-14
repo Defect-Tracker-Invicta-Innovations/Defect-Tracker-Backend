@@ -42,7 +42,7 @@ public class DeleteEmployeeTest extends EmployeeTest {
 
 	@Test
 	public void deleteEmployee() throws IOException, RestClientException {
-		EmployeeDTO employeeDTO = new EmployeeDTO("emp002", "jothi", "saidputhi@gmail.com", "QA");
+		EmployeeDTO employeeDTO = new EmployeeDTO();
 		HttpEntity<EmployeeDTO> request = new HttpEntity<EmployeeDTO>(employeeDTO, httpHeaders);
 		ResponseEntity<String> postResponse = testRestTemplate.postForEntity(BASE_URL + ADD_API_URL, request,
 				String.class);

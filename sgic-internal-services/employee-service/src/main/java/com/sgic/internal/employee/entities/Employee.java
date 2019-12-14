@@ -9,44 +9,44 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import org.springframework.lang.Nullable;
 
-@SuppressWarnings("serial")
+import com.sgic.internal.employee.util.AppConstants;
+
+
 @Entity
-@Table(schema = "employeeservice", name = "employee", uniqueConstraints = {
-		@UniqueConstraint(columnNames = { "employee_id", "email" }) })
+@Table(schema = AppConstants.SCHEMA, name = AppConstants.TABLENAME_EMPLOYEE)
 public class Employee implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	// Initialize Variable for Attribute of Employee
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long empId;
+	private Long id;
 
-	@Column(name = "employee_id", unique = true)
+	@Column(unique = true)
 	@NotEmpty
-	private String employeeid;
-
-	@NotEmpty
-	@Size(min = 2, max = 30)
-	@Pattern(regexp = "[a-z-A-Z]*", message = "Username can not contain invalid characters")
-	@Column(name = "name")
-	private String name;
+	private String employeeId;
 
 	@NotEmpty
 	@Size(min = 2, max = 30)
-	@Pattern(regexp = "[a-z-A-Z]*", message = "Username can not contain invalid characters")
-	@Column(name = "firstname")
-	private String firstname;
+	@Pattern(regexp = AppConstants.SPECIAL_CHARACTER, message = AppConstants.MESSAGE)
+	private String firstName;
+
+	@NotEmpty
+	@Size(min = 2, max = 30)
+	@Pattern(regexp = AppConstants.SPECIAL_CHARACTER, message = AppConstants.MESSAGE)
+	private String lastName;
 
 	@NotEmpty
 	@Size(min = 2, max = 50)
 	@Email
-	@Column(name = "email", unique = true)
+	@Column(unique = true)
 	private String email;
 
 	@Nullable
@@ -56,53 +56,40 @@ public class Employee implements Serializable {
 	private boolean bench = false;
 
 	@Nullable
-	private String profilePicPath;
+	private String profilePicturePath;
 
-	public String getProfilePicPath() {
-		return profilePicPath;
+	// Getter & Setter method for Employee Entity
+
+	public Long getId() {
+		return id;
 	}
 
-	public void setProfilePicPath(String profilePicPath) {
-		this.profilePicPath = profilePicPath;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	// Designation with Designation Entity Relationship
-	@ManyToOne
-	@JoinColumn(name = "designationid", nullable = false)
-	private Designation designation;
-
-//	Designation Object Getter Setter
-	public Designation getDesignation() {
-		return designation;
+	public String getEmployeeId() {
+		return employeeId;
 	}
 
-	public void setDesignation(Designation designation) {
-		this.designation = designation;
+	public void setEmployeeId(String employeeId) {
+		this.employeeId = employeeId;
 	}
 
-//	Employee Entity's Getter Setter
-	public Long getEmpId() {
-		return empId;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setEmpId(Long empId) {
-		this.empId = empId;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getEmployeeid() {
-		return employeeid;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setEmployeeid(String employeeid) {
-		this.employeeid = employeeid;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public String getEmail() {
@@ -129,12 +116,26 @@ public class Employee implements Serializable {
 		this.bench = bench;
 	}
 
-	public String getFirstname() {
-		return firstname;
+	public String getProfilePicturePath() {
+		return profilePicturePath;
 	}
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setProfilePicturePath(String profilePicturePath) {
+		this.profilePicturePath = profilePicturePath;
+	}
+
+	// Designation with Designation Entity Relationship
+	@ManyToOne
+	@JoinColumn(name = "designationId", nullable = false)
+	private Designation designation;
+
+//	Designation Object Getter Setter
+	public Designation getDesignation() {
+		return designation;
+	}
+
+	public void setDesignation(Designation designation) {
+		this.designation = designation;
 	}
 
 }

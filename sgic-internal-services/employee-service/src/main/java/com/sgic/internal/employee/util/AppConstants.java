@@ -3,7 +3,7 @@ package com.sgic.internal.employee.util;
 public class AppConstants {
 
 	public static final String EMPLOYEE_URI = "/employees";
-	public static final String EMPLOYEE_JSON_PARAM = "extra";
+	public static final String EMPLOYEE_JSON_PARAM = "empJson";
 	public static final String EMPLOYEE_FILE_PARAM = "file";
 	public static final String SUCCESS_CODE = "EMP-200";
 	public static final String SUCCESS_MSG = "Employee created successfully";
@@ -27,5 +27,19 @@ public class AppConstants {
 	public static final String JPEG_FILE_FORMAT = ".jpeg";
 	public static final String JPG_FILE_FORMAT = ".jpg";
 	public static final String EMAIL = "email";
+	public static final String EMPLOYEE_ID = "employeeId";
 	public static final String EMPLOYEE = "employee";
+	public static final String SCHEMA = "employeeservice";
+	public static final String TABLENAME_EMPLOYEE = "employee";
+	public static final String TABLENAME_DESIGNATION = "designation";
+	public static final String SPECIAL_CHARACTER = "[a-z-A-Z]*";
+	public static final String MESSAGE = "Username can not contain invalid characters";
+	public static final String EMPLOYEE_API = "/employee";
+	public static final String EMPLOYEE_API_WITH_ID = "/employee/{id}";
+	public static final String EMPLOYEES_API = "/employees";
+	public static final String EMPLOYEE_PATH_VARIABLE = "id";
+	public static final String EMPLOYEE_BENCH_TRUE_API="/employee/benchTrue/{id}";
+	public static final String EMPLOYEE_BENCH_FALSE_API="/employee/benchFalse/{id}";
+	public static final String EMPLOYEE_AVAILABILITY_API="/employee/availability/{id}";
+	
 }

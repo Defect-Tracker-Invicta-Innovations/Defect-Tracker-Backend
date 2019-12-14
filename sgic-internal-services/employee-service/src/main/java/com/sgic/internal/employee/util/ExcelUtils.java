@@ -18,15 +18,11 @@ public class ExcelUtils {
 
 	public static List<Employee> parseExcelFile(InputStream is) {
 		try {
-			System.out.println("excelutils2");
 			Workbook workbook = new XSSFWorkbook(is);
-			System.out.println("Workbook has " + workbook.getNumberOfSheets() + " Sheets : ");
 			// 1. You can obtain a sheetIterator and iterate over it
 			Iterator<Sheet> sheetIterator = workbook.sheetIterator();
-			System.out.println("Retrieving Sheets using Iterator");
 			while (sheetIterator.hasNext()) {
 				Sheet sheet = sheetIterator.next();
-				System.out.println("=> " + sheet.getSheetName());
 			}
 
 			// Getting the Sheet at index zero
@@ -36,55 +32,45 @@ public class ExcelUtils {
 			DataFormatter dataFormatter = new DataFormatter();
 
 			// 1. You can obtain a rowIterator and columnIterator and iterate over them
-			System.out.println("\n\nIterating over Rows and Columns using Iterator\n");
 			Iterator<Row> rowIterator = sheet.rowIterator();
-			List<Employee> lstCustomers = new ArrayList<Employee>();
+			List<Employee> listEmployees = new ArrayList<Employee>();
 			while (rowIterator.hasNext()) {
 				Row row = rowIterator.next();
 
 				// Now let's iterate over the columns of the current row
 				Iterator<Cell> cellIterator = row.cellIterator();
-				Employee cust = new Employee();
-				Designation desi = new Designation();
+				Employee employee = new Employee();
+				Designation designation = new Designation();
 				int cellIndex = 0;
 				while (cellIterator.hasNext()) {
 					Cell cell = cellIterator.next();
-					@SuppressWarnings("unused")
 					String cellValue = dataFormatter.formatCellValue(cell);
-					if (cellIndex == 0) { // ID
-						System.out.print(cell + "\t");
-						cust.setEmployeeid(cell.getStringCellValue());
-					} else if (cellIndex == 1) { // Name
-						System.out.print(cell + "\t");
-						cust.setFirstname(cell.getStringCellValue());
-					} else if (cellIndex == 2) { // Name
-						System.out.print(cell + "\t");
-						cust.setName(cell.getStringCellValue());
-					} else if (cellIndex == 3) { // Address
-						System.out.print(cell + "\t");
-						cust.setEmail(cell.getStringCellValue());
-					} else if (cellIndex == 4) { // Address
-						System.out.print(cell + "\t");
-						desi.setDesignationid((long) cell.getNumericCellValue());
-						cust.setDesignation(desi);
-					} else if (cellIndex == 5) { // ProfilePic
-						System.out.print(cell + "\t");
-						cust.setProfilePicPath(cell.getStringCellValue());
+					if (cellIndex == 0) { // Employee Id
+						employee.setEmployeeId(cell.getStringCellValue());
+					} else if (cellIndex == 1) { // First Name
+						employee.setFirstName(cell.getStringCellValue());
+					} else if (cellIndex == 2) { // Last Name
+						employee.setLastName(cell.getStringCellValue());
+					} else if (cellIndex == 3) { // Email
+						employee.setEmail(cell.getStringCellValue());
+					} else if (cellIndex == 4) { // Designation Id
+						designation.setId((long) cell.getNumericCellValue());
+						employee.setDesignation(designation);
+					} else if (cellIndex == 5) { // ProfilePicture
+						employee.setProfilePicturePath(cell.getStringCellValue());
 					}
-					
-					
 
 					cellIndex++;
-					lstCustomers.add(cust);
+					listEmployees.add(employee);
 				}
-				
+
 			}
 
 			// Close WorkBook
 			workbook.close();
 
-			// return lstCustomers;
-			return lstCustomers;
+			// return list employees;
+			return listEmployees;
 		} catch (IOException e) {
 			throw new RuntimeException("FAIL! -> message = " + e.getMessage());
 		}

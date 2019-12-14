@@ -12,9 +12,9 @@ public interface DesignationService {
 	public List<Designation> getAllDesignation();
 
 	//	Get Designation by Designation Id Method
-	public Designation getBydesignationid(Long designationid);
+	public Designation getByDesignationId(Long id);
 
 	//  Delete Designation by Designation Id Method
-	public void deleteDesignationBydesignationid(Long designationid);
+	public void deleteDesignationBydesignationId(Long id);
 
 }

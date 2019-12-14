@@ -37,7 +37,7 @@ public class GetEmployeeTest extends EmployeeTest{
 
 	@Test
 	public void testCreateEmployee() throws IOException, RestClientException {
-		EmployeeDTO employeeDTO = new EmployeeDTO("EMP003", "Dali", "dali@gmail.com", "SoftwareEngineer");
+		EmployeeDTO employeeDTO = new EmployeeDTO();
 		HttpHeaders httpHeaders = new HttpHeaders();
 		HttpEntity<EmployeeDTO> request = new HttpEntity<EmployeeDTO>(employeeDTO, httpHeaders);
 		ResponseEntity<String> postresponse = testRestTemplate
