@@ -11,7 +11,7 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 import com.sgic.internal.product.controller.dto.CompanyDto;
 import com.sgic.internal.product.entities.Company;
-import com.sgic.internal.product.entities.CompanyLicenseType;
+import com.sgic.internal.product.entities.LicenseType;
 
 public class CompanyValidationIntegrationTest {
 
@@ -38,7 +38,7 @@ public class CompanyValidationIntegrationTest {
 
 	@SuppressWarnings("unused")
 	private Company createCompany() {
-		CompanyLicenseType com = new CompanyLicenseType();
+		LicenseType com = new LicenseType();
 		Company company = new Company();
 		company.setName("EFGH");
 		company.setAbbrivation("EFG");
@@ -46,8 +46,8 @@ public class CompanyValidationIntegrationTest {
 		company.setCompanyAdminName("Admin");
 		company.setAdminEmail("abc@gmail.com");
 
-		CompanyLicenseType companyLicenseType = new CompanyLicenseType();
-		companyLicenseType.setLicenseId(1L);
+		LicenseType companyLicenseType = new LicenseType();
+		companyLicenseType.setId(1L);
 		company.setLicenseTypeId(companyLicenseType);
 		
 		company.setLicensePeriod(1);
@@ -67,8 +67,8 @@ public class CompanyValidationIntegrationTest {
 		company.setCompanyAdminName("Admin");					//	1
 		company.setAdminEmail("abc@gmail.com");					//	1
 		
-		CompanyLicenseType companyLicenseType = new CompanyLicenseType();
-		companyLicenseType.setLicenseId(1L);							// 1
+		LicenseType companyLicenseType = new LicenseType();
+		companyLicenseType.setId(1L);							// 1
 		company.setLicenseTypeId(companyLicenseType);
 		
 		company.setLicensePeriod(1);							//	1
@@ -90,8 +90,8 @@ public class CompanyValidationIntegrationTest {
 		company.setCompanyAdminName("Admin");
 		company.setAdminEmail("abc@gmail.com");
 		
-		CompanyLicenseType companyLicenseType = new CompanyLicenseType();
-		companyLicenseType.setLicenseId(1L);							// 1
+		LicenseType companyLicenseType = new LicenseType();
+		companyLicenseType.setId(1L);							// 1
 		company.setLicenseTypeId(companyLicenseType);
 		
 		company.setLicensePeriod(1);
@@ -113,8 +113,8 @@ public class CompanyValidationIntegrationTest {
 		company.setCompanyAdminName("Admin");
 		company.setAdminEmail("abc@gmail.com");
 		
-		CompanyLicenseType companyLicenseType = new CompanyLicenseType();
-		companyLicenseType.setLicenseId(1L);							// 1
+		LicenseType companyLicenseType = new LicenseType();
+		companyLicenseType.setId(1L);							// 1
 		company.setLicenseTypeId(companyLicenseType);
 		
 		company.setLicensePeriod(1);
@@ -136,8 +136,8 @@ public class CompanyValidationIntegrationTest {
 //		company.setCompanyAdminName("Admin");
 		company.setAdminEmail("abc@gmail.com");
 		
-		CompanyLicenseType companyLicenseType = new CompanyLicenseType();
-		companyLicenseType.setLicenseId(1L);							// 1
+		LicenseType companyLicenseType = new LicenseType();
+		companyLicenseType.setId(1L);							// 1
 		company.setLicenseTypeId(companyLicenseType);
 		
 		company.setLicensePeriod(1);
@@ -159,8 +159,8 @@ public class CompanyValidationIntegrationTest {
 		company.setCompanyAdminName("Admin");
 //		company.setAdminEmail("abc@gmail.com");
 		
-		CompanyLicenseType companyLicenseType = new CompanyLicenseType();
-		companyLicenseType.setLicenseId(1L);							// 1
+		LicenseType companyLicenseType = new LicenseType();
+		companyLicenseType.setId(1L);							// 1
 		company.setLicenseTypeId(companyLicenseType);
 		
 		company.setLicensePeriod(1);
@@ -181,8 +181,8 @@ public class CompanyValidationIntegrationTest {
 		company.setCompanyAdminName("Admin");
 		company.setAdminEmail(correct_email);
 		
-		CompanyLicenseType companyLicenseType = new CompanyLicenseType();
-		companyLicenseType.setLicenseId(1L);							// 1
+		LicenseType companyLicenseType = new LicenseType();
+		companyLicenseType.setId(1L);							// 1
 		company.setLicenseTypeId(companyLicenseType);
 		
 		company.setLicensePeriod(1);
@@ -203,8 +203,8 @@ public class CompanyValidationIntegrationTest {
 		company.setCompanyAdminName("Admin");
 		company.setAdminEmail(wrong_email);
 		
-		CompanyLicenseType companyLicenseType = new CompanyLicenseType();
-		companyLicenseType.setLicenseId(1L);							// 1
+		LicenseType companyLicenseType = new LicenseType();
+		companyLicenseType.setId(1L);							// 1
 		company.setLicenseTypeId(companyLicenseType);
 		
 		company.setLicensePeriod(1);
@@ -249,8 +249,8 @@ public class CompanyValidationIntegrationTest {
 		company.setCompanyAdminName("Admin");
 		company.setAdminEmail("abc@gmail.com");
 		
-		CompanyLicenseType companyLicenseType = new CompanyLicenseType();
-		companyLicenseType.setLicenseId(1L);							// 1
+		LicenseType companyLicenseType = new LicenseType();
+		companyLicenseType.setId(1L);							// 1
 		company.setLicenseTypeId(companyLicenseType);
 		
 //		company.setLicensePeriod(1);
@@ -272,8 +272,8 @@ public class CompanyValidationIntegrationTest {
 		company.setCompanyAdminName("Admin");
 		company.setAdminEmail("abc@gmail.com");
 		
-		CompanyLicenseType companyLicenseType = new CompanyLicenseType();
-		companyLicenseType.setLicenseId(1L);							// 1
+		LicenseType companyLicenseType = new LicenseType();
+		companyLicenseType.setId(1L);							// 1
 		company.setLicenseTypeId(companyLicenseType);
 		
 		company.setLicensePeriod(1);
@@ -294,8 +294,8 @@ public class CompanyValidationIntegrationTest {
 		company.setCompanyAdminName("Admin");
 		company.setAdminEmail("abc@gmail.com");
 		
-		CompanyLicenseType companyLicenseType = new CompanyLicenseType();
-		companyLicenseType.setLicenseId(1L);							// 1
+		LicenseType companyLicenseType = new LicenseType();
+		companyLicenseType.setId(1L);							// 1
 		company.setLicenseTypeId(companyLicenseType);
 		
 		company.setLicensePeriod(1);
@@ -316,8 +316,8 @@ public class CompanyValidationIntegrationTest {
 		company.setCompanyAdminName("Admin");
 		company.setAdminEmail("abc@gmail.com");
 		
-		CompanyLicenseType companyLicenseType = new CompanyLicenseType();
-		companyLicenseType.setLicenseId(1L);							// 1
+		LicenseType companyLicenseType = new LicenseType();
+		companyLicenseType.setId(1L);							// 1
 		company.setLicenseTypeId(companyLicenseType);
 		
 		company.setLicensePeriod(1);
