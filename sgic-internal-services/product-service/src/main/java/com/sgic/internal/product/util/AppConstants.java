@@ -13,7 +13,7 @@ public class AppConstants {
 	public static final String DEFECT_TYPE_URL = "/defect-type";
 	public static final String DEFECT_TYPES_URL = "/defect-types";
 	public static final String DEFECT_TYPE_URL_WITH_ID = "/defect-type/{defectTypeId}";
-	
+	public static final String DEFECT_TYPE_COUNT_URL = "/defect-type/count";
 	
 	public static final String EMPLOYEE_JSON_PARAM = "extra";
 	public static final String EMPLOYEE_FILE_PARAM = "file";

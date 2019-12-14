@@ -9,6 +9,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import com.sgic.internal.product.entities.DefectType;
 import com.sgic.internal.product.repositories.DefectTypeRepository;
 import com.sgic.internal.product.services.DefectTypeService;
@@ -89,6 +90,25 @@ public class DefectTypeServiceImpl implements DefectTypeService{
 			logger.info("Defect Type Service Implementation --> findDefectTypeById()", e.getMessage());
 		}
 		return null;
+	}
+	
+	@Override
+	public DefectType updateDefectType(DefectType defectType) {
+		try {
+			Long defectTypeId = defectType.getId();
+			boolean isExist = defectTypeRepository.findById(defectTypeId) != null;
+			if (isExist) {
+				logger.info("Defect Type Service Implementation -> Defect Type updates Successfully");
+				return defectTypeRepository.save(defectType);
+			} else {
+				logger.info("Defect Type Service Implementation -> Defect Type Id is Not Found");
+			}
+
+		} catch (Exception ex) {
+			logger.error("Defect Type Service Implementation -> Error" + ex.getMessage());
+		}
+
+		return defectType;
 	}
 
 	@Override

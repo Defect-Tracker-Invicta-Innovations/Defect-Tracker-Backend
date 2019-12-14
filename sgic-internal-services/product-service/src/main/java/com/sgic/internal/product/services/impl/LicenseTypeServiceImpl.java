@@ -46,7 +46,7 @@ public class LicenseTypeServiceImpl implements LicenseTypeService {
 			Long licenseTypeId = licenseType.getId();
 			boolean isExist = licenseTypeRepository.findById(licenseTypeId) != null;
 			if (isExist) {
-				logger.info("license Type Service Implementation -> Employee updates Successfully");
+				logger.info("license Type Service Implementation -> License Type updates Successfully");
 				return licenseTypeRepository.save(licenseType);
 			} else {
 				logger.info("license Type Service Implementation -> license Type Id is Not Found");
