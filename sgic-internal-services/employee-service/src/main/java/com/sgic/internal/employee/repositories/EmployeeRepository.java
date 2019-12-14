@@ -12,10 +12,6 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 	// Find Employee By ID Method
 		Employee findEmployeeById(Long id);
 
-		// Find Employee By DesignationId
-		@Query("SELECT COUNT(designationId) FROM Employee WHERE designationId=:designationId")
-		Long getDesignationCount(Long designationid);
-
 		// Find Employee By Bench
 		@Transactional
 		@Modifying(clearAutomatically = true)
