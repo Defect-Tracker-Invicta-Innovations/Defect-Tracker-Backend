@@ -22,8 +22,6 @@ public class ApiResponse {
 
 	private Integer statusCode;
 
-	private String serviceName;
-
 	private String message;
 
 	public String getStatus() {
@@ -40,14 +38,6 @@ public class ApiResponse {
 
 	public void setStatusCode(Integer statusCode) {
 		this.statusCode = statusCode;
-	}
-
-	public String getServiceName() {
-		return serviceName;
-	}
-
-	public void setServiceName(String serviceName) {
-		this.serviceName = serviceName;
 	}
 
 	public String getMessage() {
