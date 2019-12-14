@@ -28,4 +28,9 @@ public class AppConstants {
 	public static final String JPG_FILE_FORMAT = ".jpg";
 	public static final String EMAIL = "email";
 	public static final String EMPLOYEE = "employee";
+	public static final String SCHEMA = "employeeservice";
+	public static final String TABLENAME_EMPLOYEE = "employee";
+	public static final String TABLENAME_DESIGNATION = "designation";
+	public static final String SPECIAL_CHARACTER = "[a-z-A-Z]*";
+	public static final String MESSAGE = "Username can not contain invalid characters";
 }
