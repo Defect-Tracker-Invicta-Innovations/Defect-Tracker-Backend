@@ -25,7 +25,8 @@ public class CompanyUpdateTest extends CompanyControllerTest {
 	private String ADD_API = "/Company";
 	private String PUT_API = "/Company";
 	private String GET_BY_ID_API = "/Company/";
-	private Long companyId = 1L;
+	private Long id = 1L;
+
 
 	private static final String PUT_COMPANY_RESPONSE = "{\"companyId\":1,\"companyName\":\"Samuel Gnanam IT Center\",\"companyAbbrivation\":\"EFG\",\"companyRegNo\":\"reg-01\",\"companyAdminName\":\"Admin\",\"companyAdminEmail\":\"efg@gmail.com\",\"companyLicenseType\":1,\"companyLicensePeriod\":1,\"licenseStartDate\":\"2019-06-29\",\"licenseEndDate\":\"2019-02-02\",\"companyDescription\":\"some desc\"}";
 	@SuppressWarnings("unused")
@@ -44,13 +45,13 @@ public class CompanyUpdateTest extends CompanyControllerTest {
 	public void addCompany() throws IOException, RestClientException {
 		CompanyDto companyDto = new CompanyDto();
 		companyDto.setCompanyName("EFGH");
-		companyDto.setCompanyAbbrivation("EFG");
-		companyDto.setCompanyRegNo("reg-01");
+		companyDto.setAbbreviation("EFG");
+		companyDto.setRegNo("reg-01");
 		companyDto.setCompanyAdminName("Admin");
-		companyDto.setCompanyAdminEmail("efg@gmail.com");
-		companyDto.setCompanyLicenseTypeId(1L);
-		companyDto.setCompanyLicensePeriod(1);
-		companyDto.setLicenseEndDate(Date.valueOf("2019-02-02"));
+		companyDto.setAdminEmail("efg@gmail.com");
+		companyDto.setLicenseTypeId(1L);
+		companyDto.setLicensePeriod(1);
+		companyDto.setEndDate(Date.valueOf("2019-02-02"));
 		companyDto.setCompanyDescription("some desc");
 
 		HttpEntity<CompanyDto> request = new HttpEntity<CompanyDto>(companyDto, httpHeaders);
@@ -59,13 +60,13 @@ public class CompanyUpdateTest extends CompanyControllerTest {
 
 		CompanyDto companyData1 = new CompanyDto();
 		companyData1.setCompanyName("ABCD");
-		companyData1.setCompanyAbbrivation("ABC");
-		companyData1.setCompanyRegNo("reg-01");
+		companyData1.setAbbreviation("ABC");
+		companyData1.setRegNo("reg-01");
 		companyData1.setCompanyAdminName("Admin");
-		companyData1.setCompanyAdminEmail("abc@gmail.com");
-		companyData1.setCompanyLicenseTypeId(1L);
-		companyData1.setCompanyLicensePeriod(1);
-		companyData1.setLicenseEndDate(Date.valueOf("2019-02-02"));
+		companyData1.setAdminEmail("abc@gmail.com");
+		companyData1.setLicenseTypeId(1L);
+		companyData1.setLicensePeriod(1);
+		companyData1.setEndDate(Date.valueOf("2019-02-02"));
 		companyData1.setCompanyDescription("some desc");
 
 		HttpEntity<CompanyDto> request1 = new HttpEntity<CompanyDto>(companyData1, httpHeaders);
@@ -79,16 +80,16 @@ public class CompanyUpdateTest extends CompanyControllerTest {
 	@Test
 	void UpdateCompany() throws IOException, RestClientException {
 		CompanyDto companyDto = new CompanyDto();
-		companyDto.setCompanyId(companyId);
+		companyDto.setId(id);
 		companyDto.setCompanyName("Samuel Gnanam IT Center");
-		companyDto.setCompanyAbbrivation("EFG");
-		companyDto.setCompanyRegNo("reg-01");
+		companyDto.setAbbreviation("EFG");
+		companyDto.setRegNo("reg-01");
 		companyDto.setCompanyAdminName("Admin");
-		companyDto.setCompanyAdminEmail("efg@gmail.com");
-		companyDto.setCompanyLicenseTypeId(1L);
-		companyDto.setCompanyLicensePeriod(1);
-		companyDto.setLicenseStartDate(Date.valueOf("2018-02-02"));
-		companyDto.setLicenseEndDate(Date.valueOf("2019-02-02"));
+		companyDto.setAdminEmail("efg@gmail.com");
+		companyDto.setLicenseTypeId(1L);
+		companyDto.setLicensePeriod(1);
+		companyDto.setStartDate(Date.valueOf("2018-02-02"));
+		companyDto.setEndDate(Date.valueOf("2019-02-02"));
 		companyDto.setCompanyDescription("some desc");
 
 		HttpEntity<CompanyDto> updateRequest = new HttpEntity<CompanyDto>(companyDto, httpHeaders);

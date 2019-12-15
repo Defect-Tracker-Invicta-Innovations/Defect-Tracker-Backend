@@ -4,7 +4,7 @@ import com.eureka.common.api.enums.RestApiResponseStatus;
 
 public class BasicResponse<T> extends ApiResponse {
 
-	public BasicResponse(RestApiResponseStatus restApiResponseStatus,String message) {
+	public BasicResponse(RestApiResponseStatus restApiResponseStatus,String serviceName ,String message) {
 		super(restApiResponseStatus);
 		super.setMessage(message);
 	}

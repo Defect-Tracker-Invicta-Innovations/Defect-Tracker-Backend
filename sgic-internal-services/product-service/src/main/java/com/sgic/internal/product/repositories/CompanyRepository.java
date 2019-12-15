@@ -5,5 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.sgic.internal.product.entities.Company;
 
 public interface CompanyRepository extends JpaRepository<Company, Long> {
+	
 	Company findCompanyById(Long id);
+	
+	boolean existsByCompanyName(String companyName);
 }

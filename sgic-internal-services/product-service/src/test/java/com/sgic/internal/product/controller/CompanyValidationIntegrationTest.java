@@ -24,14 +24,14 @@ public class CompanyValidationIntegrationTest {
 	private CompanyDto createCompanyData() {
 		CompanyDto companyDto = new CompanyDto();
 		companyDto.setCompanyName("EFGH");
-		companyDto.setCompanyAbbrivation("EFG");
-		companyDto.setCompanyRegNo("reg-01");
+		companyDto.setAbbreviation("EFG");
+		companyDto.setRegNo("reg-01");
 		companyDto.setCompanyAdminName("Admin");
-		companyDto.setCompanyAdminEmail("abc@gmail.com");
-		companyDto.setCompanyLicenseTypeId(1L);
-		companyDto.setCompanyLicensePeriod(1);
-		companyDto.setLicenseStartDate(Date.valueOf("2018-02-02"));
-		companyDto.setLicenseEndDate(Date.valueOf("2019-02-02"));
+		companyDto.setAdminEmail("abc@gmail.com");
+		companyDto.setLicenseTypeId(1L);
+		companyDto.setLicensePeriod(1);
+		companyDto.setStartDate(Date.valueOf("2018-02-02"));
+		companyDto.setEndDate(Date.valueOf("2019-02-02"));
 		companyDto.setCompanyDescription("some desc");
 		return companyDto;
 	}
@@ -40,8 +40,8 @@ public class CompanyValidationIntegrationTest {
 	private Company createCompany() {
 		CompanyLicenseType com = new CompanyLicenseType();
 		Company company = new Company();
-		company.setName("EFGH");
-		company.setAbbrivation("EFG");
+		company.setCompanyName("EFGH");
+		company.setAbbreviation("EFG");
 		company.setRegNo("reg-01");
 		company.setCompanyAdminName("Admin");
 		company.setAdminEmail("abc@gmail.com");
@@ -53,7 +53,7 @@ public class CompanyValidationIntegrationTest {
 		company.setLicensePeriod(1);
 //		company.setStartDate(Date.valueOf("2018-02-02"));
 //		company.setEndDate(Date.valueOf("2019-02-02"));
-		company.setDescription("some desc");
+		company.setCompanyDescription("some desc");
 		return company;
 	}
 
@@ -62,7 +62,7 @@ public class CompanyValidationIntegrationTest {
 		validator.afterPropertiesSet();
 		Company company = new Company();
 //		company.setName("EFGH");								//	1
-		company.setAbbrivation("EFG");							//	1
+		company.setAbbreviation("EFG");							//	1
 		company.setRegNo("reg-01");								//	1
 		company.setCompanyAdminName("Admin");					//	1
 		company.setAdminEmail("abc@gmail.com");					//	1
@@ -74,7 +74,7 @@ public class CompanyValidationIntegrationTest {
 		company.setLicensePeriod(1);							//	1
 		company.setStartDate(Date.valueOf("2018-02-02"));		//	1
 		company.setEndDate(Date.valueOf("2019-02-02"));			//	1
-		company.setDescription("some desc");					//	1  - This can be null
+		company.setCompanyDescription("some desc");					//	1  - This can be null
 		Set<ConstraintViolation<Company>> violations = validator.validate(company);
 //		assertEquals(violations.isEmpty(), false);
 		 assertThat(violations.size()).isEqualTo(1); // Check the validated null value fields and counts. if there is no validated null value fields isEqualTo(0).
@@ -84,7 +84,7 @@ public class CompanyValidationIntegrationTest {
 	public void ifCompanyAbbrivationIsNull_ValidationFails() {
 		validator.afterPropertiesSet();
 		Company company = new Company();
-		company.setName("EFGH");
+		company.setCompanyName("EFGH");
 //		company.setAbbrivation("EFG");							//	1
 		company.setRegNo("reg-01");
 		company.setCompanyAdminName("Admin");
@@ -97,7 +97,7 @@ public class CompanyValidationIntegrationTest {
 		company.setLicensePeriod(1);
 		company.setStartDate(Date.valueOf("2018-02-02"));
 		company.setEndDate(Date.valueOf("2019-02-02"));
-		company.setDescription("some desc");
+		company.setCompanyDescription("some desc");
 		Set<ConstraintViolation<Company>> violations = validator.validate(company);
 		assertThat(violations.size()).isEqualTo(1);
 	}
@@ -107,8 +107,8 @@ public class CompanyValidationIntegrationTest {
 	public void ifCompanyRegNoIsNull_ValidationFails() {
 		validator.afterPropertiesSet();
 		Company company = new Company();
-		company.setName("EFGH");
-		company.setAbbrivation("EFG");	
+		company.setCompanyName("EFGH");
+		company.setAbbreviation("EFG");	
 //		company.setRegNo("reg-01");
 		company.setCompanyAdminName("Admin");
 		company.setAdminEmail("abc@gmail.com");
@@ -120,7 +120,7 @@ public class CompanyValidationIntegrationTest {
 		company.setLicensePeriod(1);
 		company.setStartDate(Date.valueOf("2018-02-02"));
 		company.setEndDate(Date.valueOf("2019-02-02"));
-		company.setDescription("some desc");
+		company.setCompanyDescription("some desc");
 		Set<ConstraintViolation<Company>> violations = validator.validate(company);
 		assertThat(violations.size()).isEqualTo(1);
 	}
@@ -130,8 +130,8 @@ public class CompanyValidationIntegrationTest {
 	public void ifCompanyAdminNameIsNull_ValidationFails() {
 		validator.afterPropertiesSet();
 		Company company = new Company();
-		company.setName("EFGH");
-		company.setAbbrivation("EFG");	
+		company.setCompanyName("EFGH");
+		company.setAbbreviation("EFG");	
 		company.setRegNo("reg-01");
 //		company.setCompanyAdminName("Admin");
 		company.setAdminEmail("abc@gmail.com");
@@ -143,7 +143,7 @@ public class CompanyValidationIntegrationTest {
 		company.setLicensePeriod(1);
 		company.setStartDate(Date.valueOf("2018-02-02"));
 		company.setEndDate(Date.valueOf("2019-02-02"));
-		company.setDescription("some desc");
+		company.setCompanyDescription("some desc");
 		Set<ConstraintViolation<Company>> violations = validator.validate(company);
 		assertThat(violations.size()).isEqualTo(1);
 	}
@@ -153,8 +153,8 @@ public class CompanyValidationIntegrationTest {
 	public void ifCompanyAdminEmailIsNull_ValidationFails() {
 		validator.afterPropertiesSet();
 		Company company = new Company();
-		company.setName("EFGH");
-		company.setAbbrivation("EFG");	
+		company.setCompanyName("EFGH");
+		company.setAbbreviation("EFG");	
 		company.setRegNo("reg-01");
 		company.setCompanyAdminName("Admin");
 //		company.setAdminEmail("abc@gmail.com");
@@ -166,7 +166,7 @@ public class CompanyValidationIntegrationTest {
 		company.setLicensePeriod(1);
 		company.setStartDate(Date.valueOf("2018-02-02"));
 		company.setEndDate(Date.valueOf("2019-02-02"));
-		company.setDescription("some desc");
+		company.setCompanyDescription("some desc");
 		Set<ConstraintViolation<Company>> violations = validator.validate(company);
 		assertThat(violations.size()).isEqualTo(1);
 	}
@@ -175,8 +175,8 @@ public class CompanyValidationIntegrationTest {
 	public void ifCompanyAdminEmailIsCorrect_ValidationFails() {
 		validator.afterPropertiesSet();
 		Company company = new Company();
-		company.setName("EFGH");
-		company.setAbbrivation("EFG");	
+		company.setCompanyName("EFGH");
+		company.setAbbreviation("EFG");	
 		company.setRegNo("reg-01");
 		company.setCompanyAdminName("Admin");
 		company.setAdminEmail(correct_email);
@@ -188,7 +188,7 @@ public class CompanyValidationIntegrationTest {
 		company.setLicensePeriod(1);
 		company.setStartDate(Date.valueOf("2018-02-02"));
 		company.setEndDate(Date.valueOf("2019-02-02"));
-		company.setDescription("some desc");
+		company.setCompanyDescription("some desc");
 		Set<ConstraintViolation<Company>> violations = validator.validate(company);
 		assertThat(violations.size()).isEqualTo(0);
 	}
@@ -197,8 +197,8 @@ public class CompanyValidationIntegrationTest {
 	public void ifCompanyAdminEmailIsWrong_ValidationFails() {
 		validator.afterPropertiesSet();
 		Company company = new Company();
-		company.setName("EFGH");
-		company.setAbbrivation("EFG");	
+		company.setCompanyName("EFGH");
+		company.setAbbreviation("EFG");	
 		company.setRegNo("reg-01");
 		company.setCompanyAdminName("Admin");
 		company.setAdminEmail(wrong_email);
@@ -210,7 +210,7 @@ public class CompanyValidationIntegrationTest {
 		company.setLicensePeriod(1);
 		company.setStartDate(Date.valueOf("2018-02-02"));
 		company.setEndDate(Date.valueOf("2019-02-02"));
-		company.setDescription("some desc");
+		company.setCompanyDescription("some desc");
 		Set<ConstraintViolation<Company>> violations = validator.validate(company);
 		assertThat(violations.size()).isEqualTo(1);
 	}
@@ -220,8 +220,8 @@ public class CompanyValidationIntegrationTest {
 	public void ifCompanyLicenseTypeIsNull_ValidationFails() {
 		validator.afterPropertiesSet();
 		Company company = new Company();
-		company.setName("EFGH");
-		company.setAbbrivation("EFG");
+		company.setCompanyName("EFGH");
+		company.setAbbreviation("EFG");
 		company.setRegNo("reg-01");
 		company.setCompanyAdminName("Admin");
 		company.setAdminEmail("abc@gmail.com");
@@ -233,7 +233,7 @@ public class CompanyValidationIntegrationTest {
 		company.setLicensePeriod(1);
 		company.setStartDate(Date.valueOf("2018-02-02"));
 		company.setEndDate(Date.valueOf("2019-02-02"));
-		company.setDescription("some desc");
+		company.setCompanyDescription("some desc");
 		Set<ConstraintViolation<Company>> violations = validator.validate(company);
 		assertThat(violations.size()).isEqualTo(1);
 	}
@@ -243,8 +243,8 @@ public class CompanyValidationIntegrationTest {
 	public void ifCompanyLicensePeriodIsNull_ValidationFails() {
 		validator.afterPropertiesSet();
 		Company company = new Company();
-		company.setName("EFGH");
-		company.setAbbrivation("EFG");
+		company.setCompanyName("EFGH");
+		company.setAbbreviation("EFG");
 		company.setRegNo("reg-01");
 		company.setCompanyAdminName("Admin");
 		company.setAdminEmail("abc@gmail.com");
@@ -256,7 +256,7 @@ public class CompanyValidationIntegrationTest {
 //		company.setLicensePeriod(1);
 //		company.setStartDate(Date.valueOf("2018-02-02"));
 //		company.setEndDate(Date.valueOf("2019-02-02"));
-		company.setDescription("some desc");
+		company.setCompanyDescription("some desc");
 		Set<ConstraintViolation<Company>> violations = validator.validate(company);
 		assertEquals(violations.isEmpty(), false);
 	}
@@ -266,8 +266,8 @@ public class CompanyValidationIntegrationTest {
 	public void ifCompanyLicenseStartDateIsNull_ValidationFails() {
 		validator.afterPropertiesSet();
 		Company company = new Company();
-		company.setName("EFGH");
-		company.setAbbrivation("EFG");
+		company.setCompanyName("EFGH");
+		company.setAbbreviation("EFG");
 		company.setRegNo("reg-01");
 		company.setCompanyAdminName("Admin");
 		company.setAdminEmail("abc@gmail.com");
@@ -279,7 +279,7 @@ public class CompanyValidationIntegrationTest {
 		company.setLicensePeriod(1);
 //		company.setStartDate(Date.valueOf("2018-02-02"));
 		company.setEndDate(Date.valueOf("2019-02-02"));
-		company.setDescription("some desc");
+		company.setCompanyDescription("some desc");
 		Set<ConstraintViolation<Company>> violations = validator.validate(company);
 		assertThat(violations.size()).isEqualTo(1);
 	}
@@ -288,8 +288,8 @@ public class CompanyValidationIntegrationTest {
 	public void ifCompanyLicenseEndDateIsNull_ValidationFails() {
 		validator.afterPropertiesSet();
 		Company company = new Company();
-		company.setName("EFGH");
-		company.setAbbrivation("EFG");
+		company.setCompanyName("EFGH");
+		company.setAbbreviation("EFG");
 		company.setRegNo("reg-01");
 		company.setCompanyAdminName("Admin");
 		company.setAdminEmail("abc@gmail.com");
@@ -301,7 +301,7 @@ public class CompanyValidationIntegrationTest {
 		company.setLicensePeriod(1);
 //		company.setStartDate(Date.valueOf("2018-02-02"));
 		company.setEndDate(Date.valueOf("2019-02-02"));
-		company.setDescription("some desc");
+		company.setCompanyDescription("some desc");
 		Set<ConstraintViolation<Company>> violations = validator.validate(company);
 		assertThat(violations.size()).isEqualTo(1);
 	}
@@ -310,8 +310,8 @@ public class CompanyValidationIntegrationTest {
 	public void ifCompanyDescriptionIsNull_ValidationFails() {
 		validator.afterPropertiesSet();
 		Company company = new Company();
-		company.setName("EFGH");
-		company.setAbbrivation("EFG");
+		company.setCompanyName("EFGH");
+		company.setAbbreviation("EFG");
 		company.setRegNo("reg-01");
 		company.setCompanyAdminName("Admin");
 		company.setAdminEmail("abc@gmail.com");

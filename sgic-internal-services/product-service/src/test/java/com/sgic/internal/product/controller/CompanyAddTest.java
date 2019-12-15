@@ -44,14 +44,14 @@ public class CompanyAddTest extends CompanyControllerTest{
 	public void addCompany() throws IOException, RestClientException {
 		CompanyDto companyDto = new CompanyDto();
 		companyDto.setCompanyName("EFGH");
-		companyDto.setCompanyAbbrivation("EFG");
-		companyDto.setCompanyRegNo("reg-01");
+		companyDto.setAbbreviation("EFG");
+		companyDto.setRegNo("reg-01");
 		companyDto.setCompanyAdminName("Admin");
-		companyDto.setCompanyAdminEmail("abc@gmail.com");
-		companyDto.setCompanyLicenseTypeId(1L);
-		companyDto.setCompanyLicensePeriod(1);
-		companyDto.setLicenseStartDate(Date.valueOf("2019-06-29"));
-		companyDto.setLicenseEndDate(Date.valueOf("2019-07-29"));
+		companyDto.setAdminEmail("abc@gmail.com");
+		companyDto.setLicenseTypeId(1L);
+		companyDto.setLicensePeriod(1);
+		companyDto.setStartDate(Date.valueOf("2019-06-29"));
+		companyDto.setEndDate(Date.valueOf("2019-07-29"));
 		companyDto.setCompanyDescription("some desc");
 		
 		HttpEntity<CompanyDto> request = new HttpEntity<CompanyDto>(companyDto,
@@ -81,14 +81,14 @@ public class CompanyAddTest extends CompanyControllerTest{
 		public void addCompanyUsingDuplicateEmail() throws IOException, RestClientException {
 			CompanyDto companyDto = new CompanyDto();
 			companyDto.setCompanyName("EFGH");
-			companyDto.setCompanyAbbrivation("EFG");
-			companyDto.setCompanyRegNo("reg-01");
+			companyDto.setAbbreviation("EFG");
+			companyDto.setRegNo("reg-01");
 			companyDto.setCompanyAdminName("Admin");
-			companyDto.setCompanyAdminEmail("abc@gmail.com");	// duplicate e-mail
-			companyDto.setCompanyLicenseTypeId(1L);
-			companyDto.setCompanyLicensePeriod(1);
-			companyDto.setLicenseStartDate(Date.valueOf("2019-06-29"));
-			companyDto.setLicenseEndDate(Date.valueOf("2019-02-02"));
+			companyDto.setAdminEmail("abc@gmail.com");	// duplicate e-mail
+			companyDto.setLicenseTypeId(1L);
+			companyDto.setLicensePeriod(1);
+			companyDto.setStartDate(Date.valueOf("2019-06-29"));
+			companyDto.setEndDate(Date.valueOf("2019-02-02"));
 			companyDto.setCompanyDescription("some desc");
 			
 			HttpEntity<CompanyDto> request = new HttpEntity<CompanyDto>(companyDto,

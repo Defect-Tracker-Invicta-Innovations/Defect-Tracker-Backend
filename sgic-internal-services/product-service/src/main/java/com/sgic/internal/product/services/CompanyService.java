@@ -6,7 +6,7 @@ import com.sgic.internal.product.entities.Company;
 
 public interface CompanyService {
 	// Get Company By Id
-	public Company getCompanyById(Long companyId);
+	public Company getCompanyById(Long id);
 
 	// Save Company
 	public Company saveCompany(Company company);
@@ -19,5 +19,7 @@ public interface CompanyService {
 
 	// Update Company
 	public Company updateCompany(Company company);
+
+	public boolean isCompanyAlreadyExist(String companyName);
 	
 }
