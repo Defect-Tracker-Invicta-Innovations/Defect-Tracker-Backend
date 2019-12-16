@@ -1,6 +1,7 @@
 package com.sgic.internal.employee.services;
 
 import java.util.List;
+import org.springframework.web.multipart.MultipartFile;
 import com.sgic.internal.employee.entities.Employee;
 
 public interface EmployeeService {
@@ -32,5 +33,8 @@ public interface EmployeeService {
 
 	// Method for UpdateAvailability Employee
 	public void updateAvailability(Employee employee);
+
+	// Excel import method
+	public void store(MultipartFile file);
 
 }

@@ -3,37 +3,22 @@ package com.sgic.internal.employee.dto;
 public class DesignationDTO {
 	
 //	Initialize Designation DTO 
-	private Long designationid;
-	private String designationname;
+	private Long id;
+	private String designationName;
 	
-//	Initialize DesignationDTO Getter Setter
-	public Long getDesignationid() {
-		return designationid;
+//	Initialize DesignationDTO Getter Setter	
+	
+	public Long getId() {
+		return id;
 	}
-	public void setDesignationid(Long designationid) {
-		this.designationid = designationid;
+	public void setId(Long id) {
+		this.id = id;
 	}
-	public String getDesignationname() {
-		return designationname;
+	public String getDesignationName() {
+		return designationName;
 	}
-	public void setDesignationname(String designationname) {
-		this.designationname = designationname;
+	public void setDesignationName(String designationName) {
+		this.designationName = designationName;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
+		
 }

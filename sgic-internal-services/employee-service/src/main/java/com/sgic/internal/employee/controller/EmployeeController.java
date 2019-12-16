@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-
 
 import com.eureka.common.api.enums.RestApiResponseStatus;
 
@@ -29,11 +30,9 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sgic.internal.employee.dto.EmployeeDTO;
 
-import com.sgic.internal.employee.entities.Designation;
 import com.sgic.internal.employee.entities.Employee;
 import com.sgic.internal.employee.repositories.EmployeeRepository;
 import com.sgic.internal.employee.services.EmployeeService;
-import com.sgic.internal.employee.services.FileStorageService;
 import com.sgic.internal.employee.util.AppConstants;
 import com.sgic.internal.employee.util.ErrorCodes;
 import com.sgic.internal.employee.util.ValidationMessages;
@@ -45,12 +44,12 @@ public class EmployeeController {
 
 	@Autowired
 	private EmployeeService employeeservice;
-	
+
 	@Autowired
 	private EmployeeRepository employeeRepository;
 
-	@Autowired
-	private FileStorageService fileStorageService;
+//	@Autowired
+//	private FileStorageService fileStorageService;
 
 	@Autowired
 	private Mapper mapper;
@@ -146,9 +145,21 @@ public class EmployeeController {
 			@PathVariable(AppConstants.EMPLOYEE_PATH_VARIABLE) Long id) {
 //		Employee employee = mapper.map(employeeDTO, Employee.class);
 		int availablenow = employeeDTO.getAvailability();
-		employeeRepository.updateAvailability(availablenow,id);
+		employeeRepository.updateAvailability(availablenow, id);
 		return new ResponseEntity<>(
 				new BasicResponse<>(RestApiResponseStatus.UPDATED, ValidationMessages.EMPLOYEE_UPDATED), HttpStatus.OK);
 	}
 
+	@PostMapping(AppConstants.EMPLOYEES_API)
+	public ResponseEntity<Object> uploadMultipartFile(@RequestParam("uploadfile") MultipartFile file, Model model) {
+		try {
+			employeeservice.store(file);
+			model.addAttribute(AppConstants.UPLOAD_MESSAGE, ValidationMessages.FILE_UPLOAD);
+		} catch (Exception e) {
+			model.addAttribute(AppConstants.UPLOAD_MESSAGE, ValidationMessages.FAILED_FILE_UPLOAD+ file.getOriginalFilename());
+		}
+		return new ResponseEntity<>(
+				new BasicResponse<>(RestApiResponseStatus.CREATED, ValidationMessages.EMPLOYEE_CREATED), HttpStatus.OK);
+
+	}
 }

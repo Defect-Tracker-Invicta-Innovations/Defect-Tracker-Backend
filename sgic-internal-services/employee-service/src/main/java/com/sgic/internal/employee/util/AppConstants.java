@@ -28,4 +28,18 @@ public class AppConstants {
 	public static final String JPG_FILE_FORMAT = ".jpg";
 	public static final String EMAIL = "email";
 	public static final String EMPLOYEE = "employee";
+	public static final String EMPLOYEE_ID = "employeeId";
+	public static final String SCHEMA = "employeeservice";
+	public static final String TABLENAME_EMPLOYEE = "employee";
+	public static final String TABLENAME_DESIGNATION = "designation";
+	public static final String SPECIAL_CHARACTER = "[a-z-A-Z]*";
+	public static final String MESSAGE = "Username can not contain invalid characters";
+	public static final String EMPLOYEE_API = "/employee";
+	public static final String EMPLOYEE_BY_ID_API = "/employee/{id}";
+	public static final String EMPLOYEES_API = "/employees";
+	public static final String EMPLOYEE_PATH_VARIABLE = "id";
+	public static final String EMPLOYEE_BENCH_TRUE_API="/employee/benchTrue/{id}";
+	public static final String EMPLOYEE_BENCH_FALSE_API="/employee/benchFalse/{id}";
+	public static final String EMPLOYEE_AVAILABILITY_API="/employee/availability/{id}";
+	public static final String UPLOAD_MESSAGE ="message";
 }

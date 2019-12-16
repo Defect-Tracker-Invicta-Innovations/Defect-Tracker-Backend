@@ -1,5 +1,6 @@
 package com.sgic.internal.employee.services.impl;
 
+import java.io.IOException;
 import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -8,10 +9,12 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.sgic.internal.employee.entities.Employee;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.sgic.internal.employee.entities.Employee;
 import com.sgic.internal.employee.repositories.EmployeeRepository;
 import com.sgic.internal.employee.services.EmployeeService;
+import com.sgic.internal.employee.util.ExcelUtils;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -82,7 +85,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 			Long id = employee.getId();
 			boolean isExist = employeeRepository.findById(id) != null;
 			if (isExist) {
-				logger.debug("Employee update Successfully");
+				logger.debug("Employee update Method");
 				return employeeRepository.save(employee);
 			} else {
 				logger.debug("Employee Id is Not Found");
@@ -97,7 +100,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public void deleteEmployeeById(Long id) {
 		try {
-			logger.info("Delete Employee Details Method");
+			logger.debug("Delete Employee Details Method");
 			employeeRepository.deleteById(id);
 		} catch (Exception ex) {
 			logger.error("Employee Service Imp:--> Error" + ex.getMessage());
@@ -112,10 +115,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 			boolean bench = employee.isBench();
 			boolean isExist = employeeRepository.findById(id1) != null;
 			if (isExist) {
-				logger.info("Employee update Successfully");
+				logger.debug("Employee updatebenchTrue Details Method");
 				employeeRepository.updateBenchTrue(id);
 			} else {
-				logger.info("Employee Id is Not Found");
+				logger.debug("Employee Id is Not Found");
 			}
 
 		} catch (Exception ex) {
@@ -131,10 +134,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 			boolean bench = employee.isBench();
 			boolean isExist = employeeRepository.findById(id1) != null;
 			if (isExist) {
-				logger.info("Employee update Successfully");
+				logger.debug("Employee updatebenchFalse Details Method");
 				employeeRepository.updateBenchFalse(id);
 			} else {
-				logger.info("Employee Id is Not Found");
+				logger.debug("Employee Id is Not Found");
 			}
 
 		} catch (Exception ex) {
@@ -152,15 +155,26 @@ public class EmployeeServiceImpl implements EmployeeService {
 			Long id = employee.getId();
 			boolean isExist = employeeRepository.findById(id) != null;
 			if (isExist) {
-				logger.info("Employee availabilty update Successfully");
+				logger.debug("Employee availabilty update Method");
 				employeeRepository.updateAvailability(availabilitynow, id);
 			} else {
-				logger.info("Employee Id is Not Found");
+				logger.debug("Employee Id is Not Found");
 			}
 
 		} catch (Exception ex) {
 			logger.error("Employee Service Imp:--> Error" + ex.getMessage());
 		}
 
+	}
+
+	@Override
+	public void store(MultipartFile file) {
+		try {
+			logger.debug("Bulk Employee Save Method ");
+			List<Employee> employees = ExcelUtils.parseExcelFile(file.getInputStream());
+			employeeRepository.saveAll(employees);
+		} catch (IOException e) {
+			throw new RuntimeException("FAIL! -> message = " + e.getMessage());
+		}
 	}
 }
